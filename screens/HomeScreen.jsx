@@ -8,10 +8,11 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { PADDING } from "../outils/constantes";
-import { FakeActivity, FakeSymptome } from "../outils/data";
+import { COLORS, PADDING } from "../outils/constantes";
+import { FakeActivity, FakeDoctor, FakeSymptome } from "../outils/data";
 import ActivityItem from "../components/ActivityItem";
 import SymptomeItem from "../components/SymptomeItem";
+import DoctorCard from "../components/DoctorCard";
 
 const HomeScreen = () => {
   return (
@@ -39,9 +40,9 @@ const HomeScreen = () => {
       />
 
       {/* liste des symptomes */}
-      
+
       <View style={styles.title}>
-        <Text style={{fontWeight: 'bold'}}>Quels Symptomes avez vous ?</Text>
+        <Text style={{ fontWeight: "bold" }}>Quels Symptomes avez vous ?</Text>
       </View>
 
       <FlatList
@@ -51,9 +52,26 @@ const HomeScreen = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.flatListeContainer}
         renderItem={({ item }) => {
-          return <SymptomeItem item={item}/>;
+          return <SymptomeItem item={item} />;
         }}
       />
+
+      {/* liste des Docteurs */}
+
+      <View style={styles.title2}>
+        <Text style={{ fontWeight: "bold" }}>Nos Docteurs</Text>
+        <TouchableOpacity>
+          <Text style={styles.link}>Afficher tout</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.doctorsContainer}>
+        {
+          FakeDoctor.map((docteur,index) => {
+            return <DoctorCard item={docteur} key={index}/>
+          })
+        }
+      </View>
     </ScrollView>
   );
 };
@@ -70,9 +88,16 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingTop: 50,
   },
-  title : {
+  title: {
     paddingHorizontal: PADDING.horizontal,
-    paddingVertical: PADDING.vertical
+    paddingVertical: PADDING.vertical,
+  },
+  title2: {
+    paddingHorizontal: PADDING.horizontal,
+    paddingVertical: PADDING.vertical,
+    marginTop: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   userImage: {
     width: 50,
@@ -82,5 +107,18 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 17,
     fontWeight: "bold",
+  },
+  flatListeContainer: {
+    paddingHorizontal: PADDING.horizontal,
+    paddingVertical: PADDING.vertical,
+  },
+  link: {
+    fontWeight: "300",
+    fontStyle: "italic",
+    color: COLORS.main
+  },
+  doctorsContainer : {
+    paddingHorizontal: PADDING.horizontal,
+    paddingVertical: PADDING.vertical,
   }
 });

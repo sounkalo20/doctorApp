@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../HomeScreen";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -13,9 +12,12 @@ const BottomTabs = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
+      activeColor="#00B0FF"
       screenOptions={{
-        tabBarActiveTintColor: "#e91e63",
         headerShown: false,
+      }}
+      barStyle={{
+        backgroundColor : 'white',
       }}
     >
       <Tab.Screen
