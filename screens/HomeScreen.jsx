@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import React from "react";
 import { PADDING } from "../outils/constantes";
-import { FakeActivity } from "../outils/data";
-import DoctorSvg from './../assets/doctor1.svg'
-import { Svg, SvgUri } from "react-native-svg";
+import { FakeActivity, FakeSymptome } from "../outils/data";
+import ActivityItem from "../components/ActivityItem";
+import SymptomeItem from "../components/SymptomeItem";
 
 const HomeScreen = () => {
   return (
@@ -34,13 +34,24 @@ const HomeScreen = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.flatListeContainer}
         renderItem={({ item }) => {
-          return (
-            <TouchableOpacity style={styles.flatListeItem}>
-              <SvgUri width="200" height="200" uri={DoctorSvg}/>
-              <Text style={styles.mainText}>{item.mainText}</Text>
-              <Text style={styles.subText}>{item.subText}</Text>
-            </TouchableOpacity>
-          );
+          return <ActivityItem item={item} />;
+        }}
+      />
+
+      {/* liste des symptomes */}
+      
+      <View style={styles.title}>
+        <Text style={{fontWeight: 'bold'}}>Quels Symptomes avez vous ?</Text>
+      </View>
+
+      <FlatList
+        horizontal={true}
+        data={FakeSymptome}
+        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+        style={styles.flatListeContainer}
+        renderItem={({ item }) => {
+          return <SymptomeItem item={item}/>;
         }}
       />
     </ScrollView>
@@ -59,6 +70,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingTop: 50,
   },
+  title : {
+    paddingHorizontal: PADDING.horizontal,
+    paddingVertical: PADDING.vertical
+  },
   userImage: {
     width: 50,
     height: 50,
@@ -67,25 +82,5 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 17,
     fontWeight: "bold",
-  },
-  flatListeContainer : {
-    paddingHorizontal : PADDING.horizontal,
-    paddingVertical: PADDING.vertical
-  },
-  flatListeItem : {
-    paddingHorizontal: 15,
-    backgroundColor : 'white',
-    paddingVertical : 15,
-    marginRight: 15,
-    elevation: 5,
-    borderRadius: 10
-  },
-  mainText : {
-    fontWeight : 'bold',
-    fontSize: 15
-  },
-  subText : {
-    marginTop : 10,
-    fontSize : 12
   }
 });
