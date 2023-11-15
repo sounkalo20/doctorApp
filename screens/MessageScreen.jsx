@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import Header from "../components/Header";
+import { FakeChats } from "../outils/data";
+import MessageItem from "../components/MessageItem";
 
 const MessageScreen = () => {
   return (
-    <View>
-      <Text>MessageScreen</Text>
-    </View>
-  )
-}
+    <>
+      <Header nom={"Sounkalo"} image={require("./../assets/profil.jpg")} />
+      <FlatList
+        data={FakeChats}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+          return <MessageItem />;
+        }}
+      />
+    </>
+  );
+};
 
-export default MessageScreen
+export default MessageScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

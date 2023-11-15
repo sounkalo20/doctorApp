@@ -13,19 +13,13 @@ import { FakeActivity, FakeDoctor, FakeSymptome } from "../outils/data";
 import ActivityItem from "../components/ActivityItem";
 import SymptomeItem from "../components/SymptomeItem";
 import DoctorCard from "../components/DoctorCard";
+import Header from "../components/Header";
 
 const HomeScreen = () => {
   return (
     <ScrollView>
-      {/* Debut du header */}
-      <View style={styles.header}>
-        <Text style={styles.userName}>Jhon Doe</Text>
-        <Image
-          source={require("./../assets/profil.jpg")}
-          style={styles.userImage}
-        />
-      </View>
-      {/* fin du header */}
+      {/* Zone du Header */}
+      <Header nom={"Sounkalo"} image={require("./../assets/profil.jpg")} />
 
       {/* liste des activites */}
       <FlatList
@@ -66,11 +60,9 @@ const HomeScreen = () => {
       </View>
 
       <View style={styles.doctorsContainer}>
-        {
-          FakeDoctor.map((docteur,index) => {
-            return <DoctorCard item={docteur} key={index}/>
-          })
-        }
+        {FakeDoctor.map((docteur, index) => {
+          return <DoctorCard item={docteur} key={index} />;
+        })}
       </View>
     </ScrollView>
   );
@@ -79,15 +71,6 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: PADDING.horizontal,
-    paddingVertical: PADDING.vertical,
-    backgroundColor: "white",
-    paddingTop: 50,
-  },
   title: {
     paddingHorizontal: PADDING.horizontal,
     paddingVertical: PADDING.vertical,
@@ -99,15 +82,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  userImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-  },
-  userName: {
-    fontSize: 17,
-    fontWeight: "bold",
-  },
   flatListeContainer: {
     paddingHorizontal: PADDING.horizontal,
     paddingVertical: PADDING.vertical,
@@ -115,10 +89,10 @@ const styles = StyleSheet.create({
   link: {
     fontWeight: "300",
     fontStyle: "italic",
-    color: COLORS.main
+    color: COLORS.main,
   },
-  doctorsContainer : {
+  doctorsContainer: {
     paddingHorizontal: PADDING.horizontal,
     paddingVertical: PADDING.vertical,
-  }
+  },
 });
