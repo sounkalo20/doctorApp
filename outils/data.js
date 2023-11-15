@@ -91,13 +91,13 @@ export const FakeChats = [
     {
         id: "e16a06d3-b754-472c-bc13-37f16e32a5ec",
         nom: "Cecil Hattingh",
-        last_message: "consectetur culpa magna culpa sint reprehenderit mollit officia adipisicing ex sit quis quis mollit mollit consectetur nisi laborum do in",
+        last_message: " magna culpa sint reprehenderit mollit officia adipisicing ex sit quis quis mollit mollit consectetur nisi laborum do in",
         date: "13 March 2023"
     },
     {
         id: "924a730b-6132-4676-9e2c-862f4efd5a54",
         nom: "Dennis Els",
-        last_message: "culpa cillum",
+        last_message: "culpa cillum consectetur culpa magna culpa sint",
         date: "26 October 2023"
     },
     {

@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import BottomTabs from '../screens/tabs';
+import Conversation from '../screens/Conversation';
 
 
 
@@ -20,6 +21,7 @@ const Routes = () => {
                 }}
             >
                 <Stack.Screen name="Home" component={BottomTabs} />
+                <Stack.Screen name="Conversation" component={Conversation} options={{headerShown: true}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

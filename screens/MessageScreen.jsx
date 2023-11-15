@@ -3,16 +3,19 @@ import React from "react";
 import Header from "../components/Header";
 import { FakeChats } from "../outils/data";
 import MessageItem from "../components/MessageItem";
+import { PADDING } from '../outils/constantes'
 
-const MessageScreen = () => {
+
+const MessageScreen = ({navigation}) => {
   return (
     <>
       <Header nom={"Sounkalo"} image={require("./../assets/profil.jpg")} />
       <FlatList
         data={FakeChats}
         keyExtractor={(item) => item.id}
+        style={styles.root}
         renderItem={({ item }) => {
-          return <MessageItem />;
+          return <MessageItem item={item} navigation={navigation}/>;
         }}
       />
     </>
@@ -21,4 +24,10 @@ const MessageScreen = () => {
 
 export default MessageScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  root : {
+    paddingVertical: PADDING.vertical,
+    paddingHorizontal: PADDING.horizontal,
+  }
+});
+
