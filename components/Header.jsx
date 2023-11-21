@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import { COLORS, PADDING } from "../outils/constantes";
+import { PADDING } from "../outils/constantes";
 import React from "react";
 
 const Header = ({nom , image}) => {

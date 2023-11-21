@@ -4,7 +4,7 @@ import { COLORS, PADDING } from "../outils/constantes";
 
 const DoctorCard = ({ item }) => {
   return (
-    <TouchableOpacity style={styles.doctorCard}>
+    <View style={styles.doctorCard}>
       <Image source={item.image} style={styles.doctorImg} />
       <View style={styles.doctorInfo}>
         <Text style={{
@@ -27,7 +27,7 @@ const DoctorCard = ({ item }) => {
           }}>{item.specialite}</Text>
           </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
